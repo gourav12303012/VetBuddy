@@ -17,6 +17,7 @@ function ContactUs() {
     setPhoneNo("");
     setComment("");
   };
+
   const { ref, inView } = useInView({
     triggerOnce: true, 
     threshold: 0.3, 
@@ -49,113 +50,120 @@ function ContactUs() {
   };
 
   return (
-    <section
-    
-  
-        
-        className="h-screen w-screen bg-[#FEFAE0]">
+    <section className="min-h-screen bg-white">
       <Navbar />
       <motion.div 
-      ref={ref}
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: inView ? 1 : 0 }} 
-      transition={{ duration: 1.5 }}
-      whileInView={{ opacity: 1 }}
-       className="h-screen w-screen flex justify-center items-center pt-24">
-        <div className="flex gap-10 mx-14 py-14">
-          <div className="flex-col hidden md:flex">
-            <span className="text-zinc-650 text-4xl">Locate Us</span>
-            <br />
-            <span className="text-zinc-550 text-2xl">
-              HMS Trivandrum - India
-            </span>
-            <span className="text-zinc-500 text-base">
-              HMS, RandomAddress, ExampleBlah, Trivandrum – XXXXXX, Kerala,
-              India
-            </span>
-            <br />
-            <div className="flex gap-20 items-start">
-              <div className="flex flex-col">
-                <span className="text-zinc-650 text-2xl">Telephone</span>
-                <span className="text-zinc-500 text-base">
-                  +91 123 456 7890
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-zinc-650 text-2xl">Emergency</span>
-                <span className="text-zinc-500 text-base">
-                  +91 123 456 7890
-                </span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-zinc-650 text-2xl">
-                  Corporate Enquiries
-                </span>
-                <span className="text-zinc-500 text-base">
-                  +91 123 456 7890
-                </span>
-              </div>
-            </div>
-            <br />
-            <div className="flex flex-col">
-              <span className="text-zinc-650 text-2xl">Email</span>
-              <span className="text-zinc-500 text-base">feedback@hms.org</span>
-            </div>
-          </div>
+        ref={ref}
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: inView ? 1 : 0 }} 
+        transition={{ duration: 1.5 }}
+        whileInView={{ opacity: 1 }}
+        className="min-h-screen flex justify-center items-center pt-24"
+      >
+        <div className="max-w-7xl w-full flex flex-col lg:flex-row gap-10 mx-4 lg:mx-14 py-14">
           <motion.div
-          ref={ref}
-          initial={{ opacity: 0, x: 50 }} 
-          animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }} 
-          transition={{ duration: 1.5 }}
-          whileInView={{ opacity: 1 }}
-           className="flex flex-col w-[500px] h-4/5 p-4 justify-center items-center bg-[#FAEDCD] gap-10 border border-black broder-2 rounded-lg border-transparent shadow-xl shadow-slate-950">
-            <span className="text-zinc-650 text-3xl font-medium">
-              Get in touch
-            </span>
-            <input
-              className="flex h-10 w-2/3 rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              type="text"
-              placeholder="Name *"
-              onChange={(e) =>
-                setName(e.target.value)
-              }
-          
-            />
-            <input
-              className="flex h-10 w-2/3 rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              type="number"
-              placeholder="Phone / Mobile *"
-              onChange={(e) =>
-                setPhoneNo(e.target.value)
-              }
-       
-            />
-            <input
-              className="flex h-10 w-2/3 rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              type="email"
-              placeholder="Email Address *"
-              onChange={(e) =>
-                setEmail(e.target.value)
-              }
+            ref={ref}
+            initial={{ opacity: 0, x: -50 }} 
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -50 }} 
+            transition={{ duration: 1.5 }}
+            whileInView={{ opacity: 1 }}
+            className="flex-col w-full lg:w-1/2 space-y-8"
+          >
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
+              Get in Touch
+            </h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-800">Our Location</h3>
+                <p className="text-gray-600 mt-2">
+                  VetBuddy Veterinary Clinic<br />
+                  123 Pet Care Avenue<br />
+                  Trivandrum – XXXXXX, Kerala, India
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">Telephone</h3>
+                  <p className="text-gray-600 mt-2">+91 123 456 7890</p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">Emergency</h3>
+                  <p className="text-gray-600 mt-2">+91 123 456 7890</p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">Email</h3>
+                  <p className="text-gray-600 mt-2">contact@vetbuddy.com</p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">Business Hours</h3>
+                  <p className="text-gray-600 mt-2">
+                    Mon - Fri: 9:00 AM - 8:00 PM<br />
+                    Sat - Sun: 10:00 AM - 6:00 PM
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
-            />
-            <textarea
-              id="message"
-              rows="4"
-              className="flex h-30 w-2/3 rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-              placeholder="Message *"
-              onChange={(e) =>
-                setComment(e.target.value)
-              }
-
-            ></textarea>
-            <button
-              onClick={handleSubmit}
-              type="button"
-              className="rounded-md bg-[#D4A373] px-10 py-3 text-lg font-semibold text-white shadow-sm hover:scale-105 duration-150 active:scale-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-            >
-              Submit
-            </button>
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, x: 50 }} 
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }} 
+            transition={{ duration: 1.5 }}
+            whileInView={{ opacity: 1 }}
+            className="w-full lg:w-1/2 bg-white rounded-2xl shadow-xl p-8"
+          >
+            <h3 className="text-2xl font-semibold text-center mb-8">Send us a Message</h3>
+            <form className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                <input
+                  type="tel"
+                  placeholder="Your Phone Number"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
+                  onChange={(e) => setPhoneNo(e.target.value)}
+                  value={phone}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input
+                  type="email"
+                  placeholder="Your Email Address"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                <textarea
+                  rows="4"
+                  placeholder="Your Message"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
+                  onChange={(e) => setComment(e.target.value)}
+                  value={message}
+                ></textarea>
+              </div>
+              <button
+                onClick={handleSubmit}
+                type="button"
+                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
+              >
+                Send Message
+              </button>
+            </form>
           </motion.div>
         </div>
       </motion.div>

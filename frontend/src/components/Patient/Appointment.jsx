@@ -18,12 +18,12 @@ function Appointment() {
     patient: "",
     phone: "",
     appointmentDate: "",
-    date:new Date(),
+    date: new Date(),
     time: "",
     doctor: "",
     reason: "",
     email: "",
-    city:"",
+    city: "",
   });
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function Appointment() {
         patient: appointment.patient,
         phone: appointment.phone,
         doctor: appointment.doctor,
-        appointmentDate: appointment.appointmentDate ,
+        appointmentDate: appointment.appointmentDate,
         reason: appointment.reason,
         email: appointment.email,
         time: appointment.time,
@@ -55,7 +55,6 @@ function Appointment() {
           confirmButtonText: "Ok",
           text: "Appointment Request Sent Successfully!",
         });
-       
       })
       .catch((err) => {
         Swal.fire({
@@ -68,125 +67,113 @@ function Appointment() {
   };
 
   return (
-    <motion.section
-    
-
-    className="bg-[#FEFAE0]">
+    <motion.section className="bg-white min-h-screen">
       <Navbar />
-      <div className="h-screen f-screen  flex justify-center items-center">
-        <div className=" h-[80%] w-full mt-[80px] flex justify-center items-center gap-5 rounded-xl">
+      <div className="pt-20 flex justify-center items-center min-h-screen">
+        <div className="w-full max-w-7xl flex flex-col lg:flex-row justify-center items-center gap-8 p-4">
           <motion.div
-          ref={ref}
-          initial={{ opacity: 0, x: -50 }} 
-          animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -50 }} 
-          transition={{ duration: 1.5 }}
-          whileInView={{ opacity: 1 }}
-           className="hidden lg:block">
-            <img src={appoint} className="size-80" alt="nurse" />
+            ref={ref}
+            initial={{ opacity: 0, x: -50 }} 
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -50 }} 
+            transition={{ duration: 1.5 }}
+            whileInView={{ opacity: 1 }}
+            className="hidden lg:block lg:w-1/2"
+          >
+            <img src={appoint} className="w-full max-w-lg" alt="Veterinary appointment illustration" />
           </motion.div>
+
           <motion.div
-          ref={ref}
-          initial={{ opacity: 0, x: 50 }} 
-          animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }} 
-          transition={{ duration: 1.5 }}
-          whileInView={{ opacity: 1 }}
-          
-          className=" shadow-xl bg-[#FAEDCD] shadow-black lg:w-[50%] w-full overflow-auto">
-            <form className="flex flex-col w-full h-full  gap-4 p-5 justify-center lg:ps-14 items-center">
-              <p className="text-2xl font-semibold">Book Appointment</p>
-              <div className="w-full flex m-2 justify-center items-center ">
-                <div className="w-full flex flex-col">
-                  Name:
+            ref={ref}
+            initial={{ opacity: 0, x: 50 }} 
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }} 
+            transition={{ duration: 1.5 }}
+            whileInView={{ opacity: 1 }}
+            className="w-full lg:w-1/2 bg-white rounded-2xl shadow-xl p-8"
+          >
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
+                Book Your Appointment
+              </h2>
+              <p className="text-gray-600 mt-2">Schedule a visit for your pet with our expert veterinarians</p>
+            </div>
+
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                   <input
-                    className=" h-10 w-[300px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="text"
-                    placeholder="Name"
+                    placeholder="Your Name"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
                     onChange={(e) => setAppointment({ ...appointment, patient: e.target.value })}
                   />
                 </div>
-                <div className="w-full flex flex-col">
-                  Phone Number:
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                   <input
-                    className=" h-10 w-[300px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    type="number"
-                    placeholder="Phone/Mobile"
+                    type="tel"
+                    placeholder="Phone Number"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
                     onChange={(e) => setAppointment({ ...appointment, phone: e.target.value })}
                   />
                 </div>
-              </div>
-              <div className="w-full flex m-2 justify-center items-center">
-                <div className="w-[90%] flex flex-col">
-                  Date Of Appointment:
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Appointment Date</label>
                   <input
-                    className=" h-10 w-[300px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="date"
-                    placeholder="Date"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
                     onChange={(e) => setAppointment({ ...appointment, appointmentDate: e.target.value })}
                   />
                 </div>
-                <div className="w-[90%] flex flex-col">
-                  Time Of Appointment:
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Time</label>
                   <input
-                    className=" h-10 w-[300px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="time"
-                    placeholder="Time"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
                     onChange={(e) => setAppointment({ ...appointment, time: e.target.value })}
                   />
                 </div>
-              </div>
-              <div className="w-full flex m-2 justify-center items-center">
-                <div className="w-full flex flex-col">
-                  Choose Doctor Name:
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Select Veterinarian</label>
                   <select
-                    id="doctors"
-                    className="h-10 w-[300px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
                     onChange={(e) => setAppointment({ ...appointment, doctor: e.target.value })}
                   >
-                    <option value="Choose you Consultant">
-                      Choose you Consultant
-                    </option>
-                    {doctors.map((doctors) => (
-                      <option key={doctors._id} value={doctors.name}>
-                        {doctors.name}
+                    <option value="">Choose your Veterinarian</option>
+                    {doctors.map((doctor) => (
+                      <option key={doctor._id} value={doctor.name}>
+                        {doctor.name}
                       </option>
                     ))}
                   </select>
                 </div>
-                <div className="w-full flex flex-col">
-                  Enter Reason:
-                  <textarea
-                    className="h-10 w-[300px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    rows="10"
-                    placeholder="Reason"
-                    onChange={(e) => setAppointment({ ...appointment, reason: e.target.value })}
-                  ></textarea>
-                </div>
-              </div>
-              <div className="w-full flex m-2 justify-center items-center">
-                <div className="w-full flex flex-col">
-                  Email:
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                   <input
-                    className=" h-10 w-[300px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
                     type="email"
-                    placeholder="Enter Email"
+                    placeholder="Your Email"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
                     onChange={(e) => setAppointment({ ...appointment, email: e.target.value })}
                   />
                 </div>
-                <div className="w-full flex flex-col">
-                  City: 
-                  <input
-                    className=" h-10 w-[300px] rounded-md border border-black/30 bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    type="email"
-                    placeholder="Enter Email"
-                    onChange={(e) => setAppointment({ ...appointment, city: e.target.value })}
-                  />
-                </div>
               </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Reason for Visit</label>
+                <textarea
+                  rows="4"
+                  placeholder="Describe your pet's condition"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300"
+                  onChange={(e) => setAppointment({ ...appointment, reason: e.target.value })}
+                ></textarea>
+              </div>
+
               <button
-                className="inline-flex w-[95%]  items-center justify-center lg:me-10 rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
-                onClick={(e) => handleSubmit(e)}
+                type="submit"
+                onClick={handleSubmit}
+                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
               >
-                Submit
+                Book Appointment
               </button>
             </form>
           </motion.div>

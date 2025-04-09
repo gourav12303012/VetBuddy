@@ -18,7 +18,7 @@ function AdminNurse() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://hmsmern.onrender.com/admin/get-department"
+          "http://localhost:4451/admin/get-department"
         );
         setDepartments(response.data);
       } catch (error) {
