@@ -18,7 +18,7 @@ function AdminDoctor() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://hmsmern.onrender.com/doctor/get-doctors"
+          "http://localhost:4451/doctor/get-doctors"
         );
         setDoctors(response.data);
       } catch (error) {
