@@ -18,32 +18,29 @@ function AboutUs() {
   let [current, setCurrent] = useState(0);
 
   let prevSlide = () => {
-    if(current === 0) setCurrent(slideImages.length - 1)
+    if(current == 0) setCurrent(slideImages.length - 1)
     else setCurrent(current - 1);
   }
-
   let nextSlide = () => {
-    if(current === slideImages.length - 1) setCurrent(0)
+    if(current == slideImages.length - 1) setCurrent(0)
     else setCurrent(current + 1);
   }
 
   return (
-    <div className="bg-white">
-      <Navbar />
-      <section className="pt-20">
+    <>
+   
+      <Navbar/>
+      <section className='pt-[80px] bg-[#FEFAE0]'>    
         <motion.div
           ref={ref}
           initial={{ opacity: 0 }} 
           animate={{ opacity: inView ? 1 : 0 }} 
           transition={{ duration: 1.5 }}
           whileInView={{ opacity: 1 }}
-          className="relative"
-        >
-          <img src={banner} alt="Veterinary clinic" className="w-full h-[500px] object-cover" />
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-white to-transparent p-8">
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-              About VetBuddy
-            </h1>
+          className='h-screen w-screen'>
+          <img src={banner} alt="banner" className='' />
+          <div className='z-10 bottom-0 hidden lg:block lg:left-32 py-4 rounded-t-lg lg:w-[400px] text-center bg-[#FAEDCD] absolute'>
+            <p className='font-semibold text-3xl'>About VetBuddy</p>
           </div>
         </motion.div>
       </section>
@@ -132,7 +129,7 @@ function AboutUs() {
           </div>
         </motion.div>
       </section>
-    </div>
+    </>
   );
 }
 
